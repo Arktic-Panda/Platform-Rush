@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     // Setting Bool statements to control movement
     void Update()
     {
+        //MOVEMENT IN X DIRECTION(FOWARD AND BACKWARDS)
         movement = Input.GetAxis ("Horizontal");
         isTouchingGround = Physics2D.OverlapCircle (groundCheckPoint.position, groundCheckRadius, groundLayer);
 
@@ -38,21 +39,24 @@ public class PlayerController : MonoBehaviour
        {
              rigidBody.velocity = new Vector2(movement*Speed,rigidBody.velocity.y);
        }
-
+        //MOVEMENT IN VERTICAL DIRECTION(JUMPING)
        if (Input.GetButtonDown ("Jump") && isTouchingGround)
        {
            rigidBody.velocity = new Vector2(rigidBody.velocity.x, JumpSpeed);
        }
     }
+    //CHECKPOINT AND RESPAWN 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Spike")
         {
+            //MOVE PLAYER TO RESPAWN POINT TRANSFORM WHEN CONTACT ENEMY
            transform.position = respawnPoint;
         }
   
         if (other.tag == "Checkpoint")
-        {
+        {   
+            //UPDATE RESPAWN POINT ON CONTACT WITH CHECKPOINT FLAGS
             respawnPoint = other.transform.position;
         }
     }

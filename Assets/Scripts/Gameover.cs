@@ -7,6 +7,7 @@ public class Gameover : MonoBehaviour
 {
    void OnTriggerEnter2D(Collider2D other)
    {
+        //LOAD GAME OVER SCENE ON COLLISION WITH PLAYER
        if(other.tag == "Player")
        {
            SceneManager.LoadScene(3);

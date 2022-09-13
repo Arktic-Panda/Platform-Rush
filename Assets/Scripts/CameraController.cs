@@ -17,11 +17,16 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ADJUSTING TRANSFORM OF CAMERA TO TRASFORM OF PLAYER
+
         playerPosition = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z);
+        
+        //MOVE CAMERA RIGHT
         if(player.transform.localScale.x > 0f)
         {
             playerPosition = new Vector3 (playerPosition.x + offset, playerPosition.y, playerPosition.z);
         }
+        //MOVE CAMERA LEFT
         else 
         {
             playerPosition = new Vector3 (playerPosition.x - offset, playerPosition.y, playerPosition.z);

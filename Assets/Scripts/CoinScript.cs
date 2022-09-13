@@ -9,6 +9,7 @@ public class CoinScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //FIND GAME MANAGEMENT SCRIPT
         gameLevelManager = FindObjectOfType<GameManager> ();
     }
 
@@ -22,6 +23,7 @@ public class CoinScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+        //ADD COINS TO SCORE AND DESTROY THE COIN
         gameLevelManager.AddCoins(coinValue);
         Destroy (gameObject);
         }
